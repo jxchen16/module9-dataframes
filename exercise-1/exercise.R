@@ -6,8 +6,6 @@
 
 # Create a vector of the number of points the Seahwaks have allowed to be scored
 # against them in each game this season
-
-
 # Combine your two vectors into a dataframe
 
 

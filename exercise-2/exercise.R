@@ -1,38 +1,45 @@
 # Create a vector of 100 employees ("Employee 1", "Employee 2", ... "Employee 100)
 # Hint: use the `paste()` function to produce the list
-
+numbers <- 1:100
+employees <- paste("Employee", numbers)
+print(employees)
 
 # Create a vector of 100 random salaries for the year 2014
 # Use the `runif()` function to pick a random number between 40000 and 50000
-
+salaries.2014 <- runif(100, min = 40000, max = 50000)
+print(salaries.2014)
 
 # Create a vector of 100 salaries in 2015 that have increased from 2014 by some amount
 # Hint: use `runif()` to add a random number to 2014's salaries. Starting from a
 # _negative_ number so that salaries may decrease!
-
+salaries.changes <- runif(100, min = -5000, max = 5000)
+salaries.2015 <- salaries.2014+salaries.changes
+print(salaries.changes)
+print(salaries.2015)
 
 # Create a data.frame 'salaries' by combining the 3 vectors you just made
 # Remember to set `stringsAsFactors=FALSE`!
-
+employees.salaries <- data.frame(employees, salaries.2014, salaries.2015, stringsAsFactors = FALSE)
+#View(employees.salaries)
 
 # Create a column 'raise' that stores the size of the raise between 2014 and 2015
-
+raise <- salaries.changes
 
 # Create a column 'got.raise' that is TRUE if the person got a raise
-
-
+got.raise <- salaries.changes<0
+employees.salaries$got_Raise <- got.raise
 ### Retrieve values from your data frame to answer the following questions
 ### Note that you should get the value as specific as possible (e.g., a single
 ### cell rather than the whole row!)
 
 # What was the 2015 salary of employee 57
-
+employees.salaries[57, 3]
 
 # How many employees got a raise?
-
+length(employees.salaries&got_Raise[employees.salaries$got_Raise])
 
 # What was the value of the highest raise?
-
+max(employees.salaries$got_Raise)
 
 # What was the "name" of the employee who received the highest raise?
 
